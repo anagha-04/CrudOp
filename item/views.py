@@ -110,37 +110,37 @@ class ItemCreateView(View):
         
         return render(request, 'item_form.html', {'form': form})
     
-# class ItemUpdateView(View):
+class ItemUpdateView(View):
 
-#     def get(self, request, **kwargs):
+    def get(self, request, **kwargs):
 
-#         id = kwargs.get("pk")
+        id = kwargs.get("pk")
 
-#         item = Item.objects.get(id=id)
+        item = Item.objects.get(id=id)
 
-#         if item.user != request.user:
+        if item.user != request.user:
 
-#             return redirect("item_list")
+            return redirect("item_list")
 
-#         return render(request, "update_form.html", {"item": item})
+        return render(request, "update_form.html", {"item": item})
 
-#     def post(self, request, **kwargs):
+    def post(self, request, **kwargs):
 
-#         id = kwargs.get("pk")
+        id = kwargs.get("pk")
 
-#         item = Item.objects.get(id=id)
+        item = Item.objects.get(id=id)
 
-#         if item.user != request.user:
+        if item.user != request.user:
 
-#             return redirect("item_list")
+            return redirect("item_list")
 
-#         item.title = request.POST.get("title")
+        item.title = request.POST.get("title")
 
-#         item.description = request.POST.get("description")
+        item.description = request.POST.get("description")
 
-#         item.save()
+        item.save()
 
-#         return redirect("item_list")
+        return redirect("item_list")
 
 # class ItemDeleteView(View):
 
