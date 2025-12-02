@@ -142,30 +142,30 @@ class ItemUpdateView(View):
 
         return redirect("item_list")
 
-# class ItemDeleteView(View):
+class ItemDeleteView(View):
 
-#     def get(self, request, **kwargs):
+    def get(self, request, **kwargs):
 
-#         id = kwargs.get("pk")
+        id = kwargs.get("pk")
 
-#         item = Item.objects.get(id=id)
+        item = Item.objects.get(id=id)
 
-#         if item.user != request.user:
+        if item.user != request.user:
 
-#             return redirect("item_list")
+            return redirect("item_list")
 
-#         return render(request, "delete.html", {"item": item})
+        return render(request, "delete.html", {"item": item})
 
-#     def post(self, request, **kwargs):
+    def post(self, request, **kwargs):
 
-#         id = kwargs.get("pk")
+        id = kwargs.get("pk")
 
-#         item = Item.objects.get(id=id)
+        item = Item.objects.get(id=id)
 
-#         if item.user != request.user:
+        if item.user != request.user:
 
-#             return redirect("item_list")
+            return redirect("item_list")
 
-#         item.delete()
+        item.delete()
         
-#         return redirect("item_list")
+        return redirect("item_list")
